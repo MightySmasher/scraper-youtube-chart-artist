@@ -1,37 +1,52 @@
 # Installation
 
-## Setup uv
+## Window
+
+### Setup uv for window
 Select one of the following methods for installing uv
 
-1. PyPI
+- PyPI
 ```bash
 pip install uv
 ```
-2. WinGet
+- WinGet
 ```bash
 winget install --id=astral-sh.uv  -e
 ```
-3. homebrew
+
+### Initialize project for window
+```bash
+uv venv --python 3.12
+```
+```bash
+.venv\Scripts\activate
+```
+```bash
+uv pip install -r requirements.txt
+```
+```bash
+uvx playwright install chromium
+```
+
+## Mac
+
+### Setup uv for window
+Select one of the following methods for installing uv
+
+- PyPI
+```bash
+pip install uv
+```
+- WinGet
+```bash
+winget install --id=astral-sh.uv  -e
+```
+- homebrew
 ```bash
 brew install uv
 ```
 
-## Initialize project: method 1
-
-### 1. Create project.
-```bash
-uv init --python 3.12
-```
-### 2. Installing dependencies
-```bash
-uv add -r requirements.txt
-```
-### 3. Installing chromium browser
-```bash
-playwright install --with-deps chromium
-```
-
-## Initialize project: method 2
+### Initialize project for Mac
 ```bash
 uv venv --python 3.12
 ```
@@ -42,9 +57,5 @@ source .venv/bin/activate
 uv pip install -r requirements.txt
 ```
 ```bash
-uvx playwright install chromium --with-deps
-or
-playwright install --with-deps chromium
-or
-playwright install chromium
+uvx playwright install chromium
 ```
