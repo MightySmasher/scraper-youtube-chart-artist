@@ -34,14 +34,15 @@ def scrape_youtube_charts(artist_name: str, country: str, timeframe: str) -> pd.
             page.wait_for_load_state('networkidle')
 
             # Select country
-            country_selector = page.locator('#search-box-and-selector #search-native')
-            country_selector.click()
-            country_selector.fill(country)
-            
-            # Wait for and select the country option
-            country_option = page.get_by_role('option', name=country, exact=True)
-            country_option.click()
-            page.wait_for_load_state('networkidle')
+            if country.lower() != 'global':
+                country_selector = page.locator('#search-box-and-selector #search-native')
+                country_selector.click()
+                country_selector.fill(country)
+                
+                # Wait for and select the country option
+                country_option = page.get_by_role('option', name=country, exact=True)
+                country_option.click()
+                page.wait_for_load_state('networkidle')
 
             # Select timeframe from the dropdown
             timeframe_button = page.get_by_role('button', name='Last 28 days')
